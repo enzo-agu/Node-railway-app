@@ -4,7 +4,7 @@ import hbs from 'hbs'
 import { __dirName } from './utils.js'
 
 import dotenv from "dotenv";
-dotenv.config({ path: "../.env" });
+dotenv.config({ path: "./.env" });
 
 const app= express()
 const PORT= process.env.PORT
@@ -15,7 +15,7 @@ hbs.registerPartials(__dirName + '/views/partials', (err)=>{
 
 })
 
-app.use(express.static(path.join(__dirName, '../public')))
+app.use(express.static(path.join(__dirName, './public')))
 
 app.get('/', (req,res)=>{
 
@@ -47,7 +47,7 @@ app.get('/elements', (req,res)=>{
 
 app.get('*', (req,res)=>{
 
-    res.sendFile(path.join(__dirName,'../public/404.html'))
+    res.sendFile(path.join(__dirName,'./public/404.html'))
 
 })
 
